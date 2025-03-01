@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>States and Cities Accordion</title>
+  <style>
+    /* Container styling */
+    .container {
+      width: 80%;
+      margin: 50px auto;
+      background-color: #f8f8f8;
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    h2 {
+      text-align: center;
+      color: #333;
+    }
+
+    /* Accordion button styles */
+    .accordion {
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px;
+      border: none;
+      cursor: pointer;
+      width: 100%;
+      text-align: left;
+      font-size: 18px;
+      margin: 5px 0;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+
+    .accordion:hover {
+      background-color: #45a049;
+    }
+
+    .accordion:after {
+      content: '\002B'; /* "+" symbol for closed state */
+      font-size: 20px;
+      color: #fff;
+      float: right;
+    }
+
+    .active:after {
+      content: "\2212"; /* "-" symbol for open state */
+    }
+
+    /* Panel styles */
+    .panel {
+      padding: 0 18px;
+      display: none; /* Hidden by default */
+      background-color: #f9f9f9;
+      overflow: hidden;
+      margin: 5px 0;
+      border-left: 3px solid #ddd;
+    }
+
+    ul {
+      list-style-type: none;
+      padding-left: 20px;
+    }
+
+    li {
+      padding: 5px 0;
+      font-size: 16px;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h2>States and Cities</h2>
+
+    <!-- Accordion for California -->
+    <button class="accordion">California</button>
+    <div class="panel">
+      <ul>
+        <li>Los Angeles</li>
+        <li>San Francisco</li>
+        <li>San Diego</li>
+        <li>Sacramento</li>
+      </ul>
+    </div>
+
+    <!-- Accordion for Texas -->
+    <button class="accordion">Texas</button>
+    <div class="panel">
+      <ul>
+        <li>Houston</li>
+        <li>Dallas</li>
+        <li>Austin</li>
+        <li>San Antonio</li>
+      </ul>
+    </div>
+
+    <!-- Accordion for Florida -->
+    <button class="accordion">Florida</button>
+    <div class="panel">
+      <ul>
+        <li>Miami</li>
+        <li>Orlando</li>
+        <li>Tampa</li>
+        <li>Jacksonville</li>
+      </ul>
+    </div>
+
+    <!-- Accordion for New York -->
+    <button class="accordion">New York</button>
+    <div class="panel">
+      <ul>
+        <li>New York City</li>
+        <li>Buffalo</li>
+        <li>Rochester</li>
+        <li>Syracuse</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- JavaScript to toggle accordion content -->
+  <script>
+    const accordions = document.querySelectorAll('.accordion');
+    
+    accordions.forEach(accordion => {
+      accordion.addEventListener('click', function () {
+        // Toggle between adding/removing the "active" class
+        this.classList.toggle('active');
+        
+        // Get the associated panel (cities)
+        const panel = this.nextElementSibling;
+        
+        // If panel is already open, close it. Otherwise, open it.
+        if (panel.style.display === 'block') {
+          panel.style.display = 'none';
+        } else {
+          panel.style.display = 'block';
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>

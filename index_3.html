@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>States and Cities Accordion</title>
+  <style>
+    /* Container styling */
+    .destination-wrapper {
+      width: 80%;
+      margin: 50px auto;
+      background-color: #fff;
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: 0px 4px 30px -5px rgba(0, 0, 0, .25);
+    }
+
+    /* Destination Accordion button styles */
+    .destination-accordion {
+      background-color: #ff8b32;
+      color: white;
+      padding: 10px;
+      border: none;
+      cursor: pointer;
+      width: 100%;
+      text-align: left;
+      font-size: 18px;
+      margin: 5px 0;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+
+    .destination-accordion:hover {
+      background-color: #45a049;
+    }
+
+    .destination-accordion:after {
+      content: '\002B';
+      /* "+" symbol for closed state */
+      font-size: 20px;
+      color: #fff;
+      float: right;
+    }
+
+    .destination-accordion.active:after {
+      content: "\2212";
+      /* "-" symbol for open state */
+    }
+
+    /* Panel styles */
+    .destination-panel {
+      display: none;
+      overflow: hidden;
+      background-color: #e3eaf3;
+    }
+    
+    .destination-panel ul li a {
+      padding: 8px 0;
+      font-size: 16px;
+      line-height: 24px;
+      color: #000;
+    }
+    .destination-col-item {
+      width: 33.33%;
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <div class="destination-wrapper">
+
+    <div class="row">
+
+      <div class="" style="display: flex; gap: 10px;">
+        <div class="destination-col-item">
+          <button class="destination-accordion">Andhra Pradesh</button>
+          <div class="destination-panel">
+            <ul>
+              <li><a href="#">Los Angeles</a></li>
+              <li><a href="#">San Francisco</a></li>
+              <li><a href="#">San Diego</a></li>
+              <li><a href="#">Sacramento</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="destination-col-item">
+          <button class="destination-accordion">Andhra Pradesh</button>
+          <div class="destination-panel">
+            <ul>
+              <li><a href="#">Los Angeles</a></li>
+              <li><a href="#">San Francisco</a></li>
+              <li><a href="#">San Diego</a></li>
+              <li><a href="#">Sacramento</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="destination-col-item">
+          <button class="destination-accordion">Andhra Pradesh</button>
+          <div class="destination-panel">
+            <ul>
+              <li><a href="#">Los Angeles</a></li>
+              <li><a href="#">San Francisco</a></li>
+              <li><a href="#">San Diego</a></li>
+              <li><a href="#">Sacramento</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <button class="destination-accordion">Arunachal Pradesh</button>
+      <div class="destination-panel">
+        <ul>
+          <li>Houston</li>
+          <li>Dallas</li>
+          <li>Austin</li>
+          <li>San Antonio</li>
+        </ul>
+      </div>
+
+      <button class="destination-accordion">Assam</button>
+      <div class="destination-panel">
+        <ul>
+          <li>Miami</li>
+          <li>Orlando</li>
+          <li>Tampa</li>
+          <li>Jacksonville</li>
+        </ul>
+      </div>
+
+      <button class="destination-accordion">Bihar</button>
+      <div class="destination-panel">
+        <ul>
+          <li>New York City</li>
+          <li>Buffalo</li>
+          <li>Rochester</li>
+          <li>Syracuse</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+
+
+
+  Andhra Pradesh
+  Arunachal Pradesh
+  Assam
+  Bihar
+  Chhattisgarh
+  Goa
+  Gujarat
+  Haryana
+  Himachal Pradesh
+  Jharkhand
+  Karnataka
+  Kerala
+  Madhya Pradesh
+  Maharashtra
+  Manipur
+  Meghalaya
+  Mizoram
+  Nagaland
+  Odisha
+  Punjab
+  Rajasthan
+  Sikkim
+  Tamil Nadu
+  Telangana
+  Tripura
+  Uttar Pradesh
+  Uttarakhand
+  West Bengal
+
+
+
+  Andaman and Nicobar Islands
+  Chandigarh
+  Dadra and Nagar Haveli and Daman and Diu
+  Lakshadweep
+  Delhi
+  Puducherry
+  Ladakh
+  Jammu and Kashmir
+
+
+
+
+
+
+
+  <!-- JavaScript to toggle destination accordion content -->
+  <script>
+    const accordions = document.querySelectorAll('.destination-accordion');
+
+    accordions.forEach(accordion => {
+      accordion.addEventListener('click', function () {
+        // Close all other panels
+        const panels = document.querySelectorAll('.destination-panel');
+        panels.forEach(panel => {
+          if (panel !== this.nextElementSibling) {
+            panel.style.display = 'none';
+            panel.previousElementSibling.classList.remove('active');
+          }
+        });
+
+        // Toggle the clicked panel
+        const panel = this.nextElementSibling;
+        this.classList.toggle('active');
+
+        if (panel.style.display === 'block') {
+          panel.style.display = 'none';
+        } else {
+          panel.style.display = 'block';
+        }
+      });
+    });
+  </script>
+
+</body>
+
+</html>
