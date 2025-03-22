@@ -1,0 +1,31 @@
+/* font familiy link "Inter", sans-serif; */
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    vertical-align: top;
+    list-style: none;
+    text-decoration: none;
+    border-collapse: collapse;
+}
+
+body {
+    font-size: 16px;
+    line-height: 24px;
+    color: #333333;
+    font-weight: 500;
+    font-family: "Inter", sans-serif;
+}
+
+
+@media screen and (max-width: 767px) {
+    .destination-col {
+        flex-wrap: wrap !important;
+        gap: 0px !important;
+    }
+    .destination-col-item {
+        width: 100% !important;
+    }
+}

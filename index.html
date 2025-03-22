@@ -2,122 +2,176 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>States Accordion</title>
-    <style>
-        /* Accordion styles */
-        .accordion {
-            background-color: #f1f1f1;
-            padding: 10px;
-            border: none;
-            cursor: pointer;
-            width: 100%;
-            text-align: left;
-            font-size: 18px;
-            margin: 5px 0;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>States and Cities Accordion</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* Container styling */
+    .destination-wrapper {
+      width: 80%;
+      margin: 50px auto;
+      background-color: #fff;
+      border-radius: 8px;
+      padding: 20px;
+      box-shadow: 0px 4px 30px -5px rgba(0, 0, 0, .25);
+    }
 
-        .accordion:after {
-            content: '\002B';
-            /* "+" symbol */
-            font-size: 20px;
-            color: #777;
-            float: right;
-        }
+    /* Destination Accordion button styles */
+    .destination-accordion {
+      background-color: #ff8b32;
+      color: white;
+      padding: 10px;
+      border: none;
+      cursor: pointer;
+      width: 100%;
+      text-align: left;
+      font-size: 18px;
+      margin: 5px 0;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
 
-        .active:after {
-            content: "\2212";
-            /* "-" symbol */
-        }
+    .destination-accordion:hover {
+      background-color: #45a049;
+    }
 
-        .panel {
-            padding: 0 18px;
-            display: none;
-            background-color: #f9f9f9;
-            overflow: hidden;
-            margin: 5px 0;
-        }
+    .destination-accordion:after {
+      content: '\002B';
+      /* "+" symbol for closed state */
+      font-size: 20px;
+      color: #fff;
+      float: right;
+    }
 
-        ul {
-            list-style-type: none;
-            padding-left: 20px;
-        }
+    .destination-accordion.active:after {
+      content: "\2212";
+      /* "-" symbol for open state */
+    }
 
-        li {
-            padding: 5px 0;
-        }
-    </style>
+    /* Panel styles */
+    .destination-panel {
+      display: none;
+      overflow: hidden;
+      background-color: #e3eaf3;
+    }
+    
+    .destination-panel ul {
+      padding: 10px 20px;
+    } 
+
+    .destination-panel ul li a {
+      padding: 8px 0;
+      font-size: 16px;
+      line-height: 24px;
+      color: #000;
+    }
+
+    .destination-col-item {
+      width: 33.33%;
+    }
+
+  </style>
+
 </head>
 
 <body>
 
-    <h2>States and Cities</h2>
+  <div class="destination-wrapper">
 
-    <!-- Accordion for states -->
-    <button class="accordion">California</button>
-    <div class="panel">
+    <div class="row">
+
+      <div class="destination-col" style="display: flex; gap: 10px;">
+        <div class="destination-col-item">
+          <button class="destination-accordion">Arunachal Pradesh</button>
+          <div class="destination-panel">
+            <ul>
+              <li><a href="#">Dirang</a></li>
+              <li><a href="#">Tawang</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="destination-col-item">
+          <button class="destination-accordion">Gujarat</button>
+          <div class="destination-panel">
+            <ul>
+              <li><a href="#">Ahmedabad</a></li>
+              <li><a href="#">Dwarka</a></li>
+              <li><a href="#">Surat</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="destination-col-item">
+          <button class="destination-accordion">Haryana</button>
+          <div class="destination-panel">
+            <ul>
+              <li><a href="#">Faridabad</a></li>
+              <li><a href="#">Gurgaon</a></li>
+              <li><a href="#">Manesar</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <button class="destination-accordion">Himachal Pradesh</button>
+      <div class="destination-panel">
         <ul>
-            <li>Los Angeles</li>
-            <li>San Francisco</li>
-            <li>San Diego</li>
-            <li>Sacramento</li>
+          <li><a href="#">Dalhousie</a></li>
+          <li><a href="#">Dharamsala</a></li>
+          <li><a href="#">Kullu</a></li>
+          <li><a href="#">Manali</a></li>
+          <li><a href="#">Shimla</a></li>
         </ul>
+      </div>
+
+      <button class="destination-accordion">Karnataka</button>
+      <div class="destination-panel">
+        <ul>
+          <li><a href="#">Coorg</a></li>
+          <li><a href="#">Mysore</a></li>
+        </ul>
+      </div>
+
+      <button class="destination-accordion">Madhya Pradesh</button>
+      <div class="destination-panel">
+        <ul>
+          <li><a href="#">Bhopal</a></li>
+          <li><a href="#">Gwalior</a></li>
+          <li><a href="#">Kanha</a></li>
+          <li><a href="#">Ujjain</a></li>
+        </ul>
+      </div>
     </div>
 
-    <button class="accordion">Texas</button>
-    <div class="panel">
-        <ul>
-            <li>Houston</li>
-            <li>Dallas</li>
-            <li>Austin</li>
-            <li>San Antonio</li>
-        </ul>
-    </div>
+  </div>
 
-    <button class="accordion">Florida</button>
-    <div class="panel">
-        <ul>
-            <li>Miami</li>
-            <li>Orlando</li>
-            <li>Tampa</li>
-            <li>Jacksonville</li>
-        </ul>
-    </div>
+  <!-- JavaScript to toggle destination accordion content -->
+  <script>
+    const accordions = document.querySelectorAll('.destination-accordion');
 
-    <button class="accordion">New York</button>
-    <div class="panel">
-        <ul>
-            <li>New York City</li>
-            <li>Buffalo</li>
-            <li>Rochester</li>
-            <li>Syracuse</li>
-        </ul>
-    </div>
-
-
-
-    <!-- JavaScript to toggle accordion content -->
-    <script>
-        const accordions = document.querySelectorAll('.accordion');
-
-        accordions.forEach(accordion => {
-            accordion.addEventListener('click', function () {
-                // Toggle between adding and removing the "active" class
-                this.classList.toggle('active');
-
-                // Get the associated panel
-                const panel = this.nextElementSibling;
-
-                // Toggle panel display
-                if (panel.style.display === 'block') {
-                    panel.style.display = 'none';
-                } else {
-                    panel.style.display = 'block';
-                }
-            });
+    accordions.forEach(accordion => {
+      accordion.addEventListener('click', function () {
+        // Close all other panels
+        const panels = document.querySelectorAll('.destination-panel');
+        panels.forEach(panel => {
+          if (panel !== this.nextElementSibling) {
+            panel.style.display = 'none';
+            panel.previousElementSibling.classList.remove('active');
+          }
         });
-    </script>
+
+        // Toggle the clicked panel
+        const panel = this.nextElementSibling;
+        this.classList.toggle('active');
+
+        if (panel.style.display === 'block') {
+          panel.style.display = 'none';
+        } else {
+          panel.style.display = 'block';
+        }
+      });
+    });
+  </script>
 
 </body>
 
